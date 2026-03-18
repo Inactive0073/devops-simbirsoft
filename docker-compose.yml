@@ -1,0 +1,18 @@
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    volumes:
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    restart: unless-stopped
