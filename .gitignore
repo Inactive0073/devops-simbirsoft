@@ -1,0 +1,6 @@
+# Env
+.env
+
+# Nginx
+*.crt
+*.key
