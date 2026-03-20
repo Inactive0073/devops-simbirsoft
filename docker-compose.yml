@@ -3,10 +3,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NGINX_UID: ${NGINX_UID:-1000}
+        NGINX_GID: ${NGINX_GID:-1000}
     cap_drop:
       - ALL
     cap_add:
       - NET_BIND_SERVICE
+    volumes:
+      - type: bind
+        source: ./nginx/ssl
+        target: /etc/nginx/ssl
+        read_only: true
     ports:
       - "80:80"
       - "443:443"
