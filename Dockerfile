@@ -1,4 +1,6 @@
-FROM nginx:1.29.6-alpine
+FROM nginx:1.29.6
+
+ENV TZ="Europe/Samara"
 
 RUN addgroup -S nginxgroup \
     && adduser -S -D -H -G nginxgroup nginxuser \
