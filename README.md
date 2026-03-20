@@ -40,7 +40,7 @@ docker compose exec nginx id
 
 - Оба url `http://<vm-ip>/`  `https://<vm-ip>/` возвращают одну и ту же страницу по условиям задания (редиректов нет).
 - На странице отображается `Hello DevOps world!`
-- На странице отображается текущее время.
+- На странице отображается текущее время `Europe/Samara`.
 - `docker compose exec nginx id` shows the dedicated `nginxuser`.
 
 ## Бэкап конфигурации Nginx

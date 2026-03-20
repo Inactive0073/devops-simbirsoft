@@ -1,11 +1,14 @@
-FROM nginx:1.29.6
+FROM nginx:1.29.6-alpine
 
-ENV TZ="Europe/Samara"
+ENV TZ=Europe/Samara
 
-RUN addgroup -S nginxgroup \
+RUN apk add --no-cache tzdata \
+    && addgroup -S nginxgroup \
     && adduser -S -D -H -G nginxgroup nginxuser \
     && rm -f /etc/nginx/conf.d/default.conf \
     && mkdir -p /var/cache/nginx /etc/nginx/ssl /usr/share/nginx/html \
+    && cp /usr/share/zoneinfo/$TZ /etc/localtime \
+    && echo $TZ > /etc/timezone \
     && chown -R nginxuser:nginxgroup /var/cache/nginx /usr/share/nginx/html
 
 COPY --chown=nginxuser:nginxgroup nginx/nginx.conf /etc/nginx/nginx.conf
