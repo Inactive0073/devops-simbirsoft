@@ -11,7 +11,7 @@
 Для создания самоподписанного сертификата выполните:
 
 ```bash
-chmod +x scripts/generate_self_signed.sh
+chmod 750 scripts/generate_self_signed.sh
 ./scripts/generate_self_signed.sh
 ```
 
