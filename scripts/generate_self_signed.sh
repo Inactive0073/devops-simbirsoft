@@ -15,7 +15,7 @@ openssl req -x509 \
     -sha256 \
     -days 365 \
     -nodes \
-    -subj "/C=RU/ST=Samara/L=Samara/O=DevOps/CN=localhost" \
+    -subj "/C=RU/ST=Ulyanovsk/L=Ulyanovsk/O=DevOps/CN=localhost" \
     -addext "subjectAltName=DNS:localhost,IP:127.0.0.1"
 
 echo "Generated $OUTPUT_DIR/cert.crt and $OUTPUT_DIR/key.pem"
