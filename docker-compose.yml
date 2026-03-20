@@ -1,18 +1,19 @@
 services:
   nginx:
-    container_name: nginx
     build:
       context: .
       dockerfile: Dockerfile
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
     ports:
       - "80:80"
       - "443:443"
     healthcheck:
-      test: ["CMD", "service", "nginx", "status"]
-      interval: 1m30s
-      timeout: 30s
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:80/ | grep -q 'Hello DevOps world!'"]
+      interval: 30s
+      timeout: 5s
       retries: 5
-      start_period: 30s
-    volumes:
-      - ./nginx/ssl:/etc/nginx/ssl:ro
+      start_period: 10s
     restart: unless-stopped
