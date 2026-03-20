@@ -1,25 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nginx for Simbirsoft</title>
+    <title>Hello DevOps world!</title>
 </head>
-
 <body>
-    <span>Hello DevOps World</span>
-    <div id='clock'>Время</div> <br>
+    <main>
+        <h1>Hello DevOps world!</h1>
+        <p>Current time: <!--#config timefmt="%Y-%m-%d %H:%M:%S" --><!--#echo var="DATE_GMT" --></p>
+    </main>
 </body>
-<script>
-    window.onload = function () {
-        window.setInterval(
-            function () {
-                var d = new Date();
-                document.getElementById("clock").innerHTML = d.toLocaleTimeString();
-            }
-            , 1000);
-    }
-</script>
-
 </html>
