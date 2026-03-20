@@ -3,4 +3,7 @@
 
 # Nginx
 *.crt
-*.key
+*.pem
+
+# Runtime artifacts
+backups/
